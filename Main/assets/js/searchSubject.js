@@ -48,6 +48,7 @@ function fetchBookInfo() {
           document.getElementById("bookList").appendChild(messageElement);
         }
       })
+      // monitors for errors
       .catch(error => {
         console.error("Error:", error);
       });

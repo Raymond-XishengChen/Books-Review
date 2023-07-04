@@ -17,18 +17,17 @@
   <div class="flex-row align-center justify-center min-100-vh bg-primary">
     <div class="col-12 col-md-9 flex-column align-center bg-light p-5">
       <h1 class="text-primary">Book Review Search Engine</h1>
-      <form id="search-form" class="form w-100">
-        <!-- briefly commented out these search options just to try to work with one seach option for the time being  -->
-        <!-- <input id="search-input" class="form-input w-100" type="text" placeholder="Author Surname">
-        <input id="search-input" class="form-input w-100" type="text" placeholder="Book Title"> -->
+      <form id="searchForm" class="form w-100">
         <input id="subjectInput" class="form-input w-100" type="text" placeholder="Search a subject">
-        <button onclick="fetchBookInfo()" class="btn btn-info btn-block">Click to begin search</button>
+        <button id="searchButton" class="btn btn-info btn-block">Search</button>
+        <div id="searchHistory">
+          <h3>Search History:</h3>
+          <select id="searchSelect"></select>
+        </div>
       </form>
     </div>
   </div>
-  <!-- This div will dynamically display the api data -->
-  <div id="bookList"></div>
-  <script src="./assets/js/searchSubject.js"></script>
-</body>
 
-</html>
+  <div id="bookList"></div>
+  <script src="./assets/js/script.js"></script>
+  <script>

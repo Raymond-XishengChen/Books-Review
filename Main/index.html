@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Book Review Search Engine</title>
+  <title class = >Book Review Search Engine</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Kablammo&family=Noto+Serif+JP:wght@300&display=swap"
@@ -14,6 +14,68 @@
 </head>
 
 <body>
+  <!-- Added a nav-->
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class = 'title is-1'>
+      Book Reviews
+    </div>
+  
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+  
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item">
+          Home
+        </a>
+  
+        <a class="navbar-item">
+          Documentation
+        </a>
+  
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            More
+          </a>
+  
+          <div class="navbar-dropdown">
+            <a class="navbar-item">
+              About
+            </a>
+            <a class="navbar-item">
+              Jobs
+            </a>
+            <a class="navbar-item">
+              Contact
+            </a>
+            <hr class="navbar-divider">
+            <a class="navbar-item">
+              Report an issue
+            </a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <a class="button is-$green">
+              <strong>Sign up</strong>
+            </a>
+            <a class="button is-light">
+              Log in
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
   <div class="flex-row align-center justify-center min-100-vh bg-primary">
     <div class="col-12 col-md-9 flex-column align-center bg-light p-5">
       <h1 class="text-primary">Book Review Search Engine</h1>
@@ -29,6 +91,16 @@
   <!-- This div will dynamically display the api data -->
   <div id="bookList"></div>
   <script src="./assets/js/searchSubject.js"></script>
+
+  <!--Search result boxes-->
+  <div class = "box">
+    <figure class = 'image is-64x64 is-one-fifth'> 
+      <img src = 'assets/vecteezy_placeholder-vector-icon-design_16916479.jpg'>
+    </figure>
+    <p class = 'Title is-large'>Title </p>
+    <p class = >Author</p>
+    <p class = 'Description'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, voluptatem! Quidem dolores nisi ducimus ex voluptatibus voluptates atque molestias totam voluptatum quisquam corporis, eveniet asperiores animi dolorem quibusdam fuga fugiat.</p>
+  </div>
 </body>
 
 </html>

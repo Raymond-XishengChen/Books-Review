@@ -7,6 +7,7 @@ function fetchBookInfo(event) {
   // Get user input
   var userInput = document.getElementById("subjectInput").value;
 
+  // This allows for multiple words with spaces to be encoded to have %20 as a space in the query parameter
   var encodedInput = encodeURIComponent(userInput);
 
   // Create the API URL with user input

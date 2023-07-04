@@ -7,8 +7,10 @@ function fetchBookInfo(event) {
   // Get user input
   var userInput = document.getElementById("subjectInput").value;
 
+  var encodedInput = encodeURIComponent(userInput);
+
   // Create the API URL with user input
-  var apiUrl = "https://gutendex.com/books/?topic=" + userInput;
+  var apiUrl = "https://gutendex.com/books/?topic=" + encodedInput;
 
   // Make a GET request to the API
   fetch(apiUrl)

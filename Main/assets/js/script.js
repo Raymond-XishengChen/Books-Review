@@ -81,3 +81,25 @@ function saveUserInput(event) {
   localStorage.setItem("userInputArray", JSON.stringify(userInputArray));
 }
 
+// Function to populate the options element with user input history
+function populateInputHistory() {
+  // Retrieve existing user input array from local storage
+  var userInputArray = JSON.parse(localStorage.getItem("userInputArray")) || [];
+
+  // Get the options element
+  var optionsElement = document.getElementById("inputHistoryOptions");
+
+  // Clear previous options
+  optionsElement.innerHTML = "";
+
+  // Add each user input as an option
+  userInputArray.forEach(input => {
+    var option = document.createElement("option");
+    option.value = input;
+    option.textContent = input;
+    optionsElement.appendChild(option);
+  });
+}
+
+// Call the function to populate the options element on page load
+populateInputHistory();

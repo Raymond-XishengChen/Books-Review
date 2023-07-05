@@ -31,6 +31,7 @@ function fetchBookInfo(event) {
 
           // Create elements for book information
           var bookElement = document.createElement("div");
+          bookElement.classList.add("book-card");
           var titleElement = document.createElement("h3");
           var authorElement = document.createElement("p");
           var coverPhotoElement = document.createElement("img");

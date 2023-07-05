@@ -60,3 +60,24 @@ function fetchBookInfo(event) {
       console.error("Error:", error);
     });
 }
+
+// This portion of code is dedicated to building a local storage function
+document.getElementById("searchButton").addEventListener("click", saveUserInput);
+
+// Function to save user input in local storage as an array
+function saveUserInput(event) {
+  event.preventDefault();
+  
+  // Get user input
+  var userInput = document.getElementById("subjectInput").value;
+  
+  // Retrieve existing user input array from local storage
+  var userInputArray = JSON.parse(localStorage.getItem("userInputArray")) || [];
+  
+  // Add the new input to the existing input array
+  userInputArray.push(userInput);
+  
+  // Store the updated input array in local storage
+  localStorage.setItem("userInputArray", JSON.stringify(userInputArray));
+}
+

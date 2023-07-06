@@ -50,9 +50,48 @@ h6 {
   cursor: pointer;
   background-color: #ccc;
   margin-top: 10px;
+  font-weight: 600;
 }
 
 #searchButton:hover {
   background-color: rgb(0, 0, 0);
   color: white;
+}
+
+#progressBar {
+  display: none;
+  margin: auto;
+  width: 60%;
+  padding-bottom: 20px;
+}
+
+#bookList {
+  padding: 5%;
+}
+
+#historyButtons button {
+  border-radius: 5px;
+  height: 2rem;
+  border: none;
+  cursor: pointer;
+  background-color: #ccc;
+  margin-top: 10px;
+  margin: 5px;
+  font-weight: 500;
+}
+
+#historyButtons button:hover {
+  background-color: rgb(72, 137, 242);
+  color: white;
+}
+
+#buttonBox {
+  display: flex;
+  justify-content: center;
+}
+
+#historyButtons {
+  display: flex;
+  justify-content: space-between;
+  width: 200px;
 }

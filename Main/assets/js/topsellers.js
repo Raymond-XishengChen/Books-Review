@@ -39,33 +39,56 @@
     var popularBookApiUrl = 'https://api.nytimes.com/svc/books/v3/lists/current/' + popularSubject + '.json?api-key=' + NYTapiKey;
     fetch(popularBookApiUrl)
     .then(response => response.json())
+
+    // .then(data => {
+    //     document.getElementById("popular-subject").innerHTML = "";
+    //     var popularSubjectElement = document.createElement("div");
+        
+    //     var popularSubject = data.results.list_name
+    //     popularSubject.innerText = "Top Sellers in " + subjectName;
+    //     popularSubjectElement.appendChild(popularTitleElement);
+
+    // })
+
     .then(data => {
         
-        // document.getElementById("popular-title").innerHTML = "";
-        // var subjectName = data.list_name;
-        // popularTitle.innerText = "Top Sellers in " + subjectName;
 
+        
         document.getElementById("popular-books").innerHTML = "";
         data.results.books.forEach(popularBooks => {
+            // console.log(popularBooks.description);
+            
             var popularTitle = popularBooks.title;
             var popularAuthor = popularBooks.author;
-            var popularDescrip = popularBooks.description;
+            var popularDescrip = popularBooks.description;            
             var popularPhotoUrl = popularBooks.book_image;
             var popularBuyUrl = popularBooks.buy_links[0].url;
-            console.log(popularBuyUrl);
         
             var popularBookElement = document.createElement("div");
+            popularBookElement.classList.add('popBooksSection');
+            popularBookElement.classList.add("book-card");
+
+
             var popularTitleElement = document.createElement("h1");
+            popularTitleElement.classList.add('popBooksTitle');
+
             var popularAuthorElement = document.createElement("h3");
+            popularAuthorElement.classList.add('popBooksAuthor');
+
             var popularDescripElement = document.createElement("p");
+            popularDescripElement.classList.add('popBooksDescrip');
+
+
             var popularPhotoElement = document.createElement("img");
+            popularPhotoElement.classList.add('popBooksPhoto');
+
             var popularBuyElement = document.createElement("a");
+            popularBuyElement.classList.add('popBooksBuyLink');
 
             popularBuyElement.href = popularBuyUrl;
-        
             popularTitleElement.innerText = popularTitle;
             popularAuthorElement.innerText = "Author: " + popularAuthor;
-            popularDescripElement.innerText = '"' + popularDescrip + '"';
+            popularDescripElement.innerText = popularDescrip;
             popularPhotoElement.src = popularPhotoUrl;
             popularPhotoElement.alt = "Cover Photo";
             popularPhotoElement.style = "width:128px;height:168px";
@@ -73,9 +96,9 @@
            
             popularBookElement.appendChild(popularTitleElement);
             popularBookElement.appendChild(popularAuthorElement);
-            popularBookElement.appendChild(popularDescripElement);
             popularBookElement.appendChild(popularPhotoElement);
             popularBookElement.appendChild(popularBuyElement);
+            popularBookElement.appendChild(popularDescripElement);
 
 
             document.getElementById("popular-books").appendChild(popularBookElement);

@@ -7,6 +7,25 @@ function fetchBookInfo(event) {
   // Get user input
   var userInput = document.getElementById("subjectInput").value;
 
+  var previousSearches = localStorage.getItem("lastThreeSearches");
+  previousSearches = previousSearches ? JSON.parse(previousSearches) : [];
+
+  // Add the current search value to the array
+  previousSearches.push(userInput);
+
+  // Keep only the last three search values
+  if (previousSearches.length > 3) {
+    previousSearches.shift();
+  }
+
+  // Save the updated array in local storage
+  localStorage.setItem("lastThreeSearches", JSON.stringify(previousSearches));
+
+  displayFetchCallButtons();
+
+  // Shows the loading bar
+  document.getElementById("progressBar").style.display = "block";
+
   // This allows for multiple words with spaces to be encoded to have %20 as a space in the query parameter
   var encodedInput = encodeURIComponent(userInput);
 
@@ -17,13 +36,18 @@ function fetchBookInfo(event) {
   fetch(apiUrl)
     .then(response => response.json())
     .then(data => {
+      // Hides the loading bar 
+      document.getElementById("progressBar").style.display = "none";
+
       // Clear previous book information
       document.getElementById("bookList").innerHTML = "";
 
       // Check if 'results' property exists in the response
       if (data.results && Array.isArray(data.results)) {
+
         // Iterate over each book in the response
         data.results.forEach(book => {
+
           // Extract the title, author, and cover photo URL
           var title = book.title;
           var author = book.authors.length > 0 ? book.authors[0].name : "Unknown Author";
@@ -57,49 +81,34 @@ function fetchBookInfo(event) {
     })
     // Handle errors
     .catch(error => {
+      document.getElementById("progressBar").style.display = "none";
       console.error("Error:", error);
     });
 }
 
-// This portion of code is dedicated to building a local storage function
-document.getElementById("searchButton").addEventListener("click", saveUserInput);
+function displayFetchCallButtons() {
+  var previousSearches = localStorage.getItem("lastThreeSearches");
+  previousSearches = previousSearches ? JSON.parse(previousSearches) : [];
 
-// Function to save user input in local storage as an array
-function saveUserInput(event) {
-  event.preventDefault();
-  
-  // Get user input
-  var userInput = document.getElementById("subjectInput").value;
-  
-  // Retrieve existing user input array from local storage
-  var userInputArray = JSON.parse(localStorage.getItem("userInputArray")) || [];
-  
-  // Add the new input to the existing input array
-  userInputArray.push(userInput);
-  
-  // Store the updated input array in local storage
-  localStorage.setItem("userInputArray", JSON.stringify(userInputArray));
-}
+  var containerElement = document.getElementById("historyButtons");
+  containerElement.innerHTML = ""; // Clear the container before adding buttons
 
-// Function to populate the options element with user input history
-function populateInputHistory() {
-  // Retrieve existing user input array from local storage
-  var userInputArray = JSON.parse(localStorage.getItem("userInputArray")) || [];
+  previousSearches.forEach(function(fetchCall) {
+    // Create a button element
+    var buttonElement = document.createElement("button");
+    buttonElement.textContent = fetchCall;
 
-  // Get the options element
-  var optionsElement = document.getElementById("inputHistoryOptions");
+    // Add a click event listener to call the fetchBookInfo function with the saved fetch call
+    buttonElement.addEventListener("click", function() {
+      document.getElementById("subjectInput").value = fetchCall;
+      fetchBookInfo(event);
+    });
 
-  // Clear previous options
-  optionsElement.innerHTML = "";
-
-  // Add each user input as an option
-  userInputArray.forEach(input => {
-    var option = document.createElement("option");
-    option.value = input;
-    option.textContent = input;
-    optionsElement.appendChild(option);
+    // Append the button to the container element
+    containerElement.appendChild(buttonElement);
   });
 }
 
-// Call the function to populate the options element on page load
-populateInputHistory();
+document.addEventListener("DOMContentLoaded", function() {
+  displayFetchCallButtons();
+});

@@ -16,7 +16,7 @@ CSS Framework used:
 
 ## Usage
 
-Link to live project: 
+Link to live project: <https://raymond-xishengchen.github.io/Books-Review/>
 
 ![alt text](./Main/assets/screenshots/screenshoot1.png)
 ![alt text](./Main/assets/screenshots/screenshot2.png)

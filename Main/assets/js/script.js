@@ -23,6 +23,9 @@ function fetchBookInfo(event) {
 
   displayFetchCallButtons();
 
+  document.getElementById("popular-books").style.display = "none";
+  document.getElementById("bestSellers").style.display = "none";
+
   // Shows the loading bar
   document.getElementById("progressBar").style.display = "block";
 

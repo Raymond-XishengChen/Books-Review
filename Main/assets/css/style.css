@@ -96,3 +96,27 @@ h6 {
   justify-content: space-between;
   width: 200px;
 }
+
+#bestSellers {
+  font-weight: bolder;
+  font-size: x-large;
+}
+
+.popBookSection{
+  padding: 5%;
+}
+
+.popBooksPhoto{
+  opacity: 0.7;
+}
+
+.popBooksPhoto:hover{
+  opacity: 1;
+  transform: scale(110%);
+}
+
+.popBooksTitle {
+  font-weight: bolder;
+  font-size: 150%;
+}
+

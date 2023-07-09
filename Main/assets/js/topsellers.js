@@ -41,23 +41,19 @@
     .then(response => response.json())
 
     // .then(data => {
-    //     document.getElementById("popular-subject").innerHTML = "";
-    //     var popularSubjectElement = document.createElement("div");
-        
-    //     var popularSubject = data.results.list_name
-    //     popularSubject.innerText = "Top Sellers in " + subjectName;
-    //     popularSubjectElement.appendChild(popularTitleElement);
+    //   console.log(data.results.list_name);
+    //   var popularSubjectElement = document.getElementById("popular-subject");
+    //   popularSubjectElement.textContent = "New York Times Best Sellers List in " + data.results.list_name ;
 
     // })
 
     .then(data => {
         
-
+      var popularSubjectElement = document.getElementById("bestSellers");
+      popularSubjectElement.textContent = "New York Times Best Sellers List in " + '"' + data.results.list_name + '"';
         
         document.getElementById("popular-books").innerHTML = "";
-        data.results.books.forEach(popularBooks => {
-            // console.log(popularBooks.description);
-            
+        data.results.books.forEach(popularBooks => {            
             var popularTitle = popularBooks.title;
             var popularAuthor = popularBooks.author;
             var popularDescrip = popularBooks.description;            
@@ -92,11 +88,12 @@
             popularPhotoElement.src = popularPhotoUrl;
             popularPhotoElement.alt = "Cover Photo";
             popularPhotoElement.style = "width:128px;height:168px";
-            popularBuyElement.innerText = "Buy it";
+            // popularBuyElement.innerText = "Buy it";
            
+            popularBuyElement.appendChild(popularPhotoElement);
             popularBookElement.appendChild(popularTitleElement);
             popularBookElement.appendChild(popularAuthorElement);
-            popularBookElement.appendChild(popularPhotoElement);
+            // popularBookElement.appendChild(popularPhotoElement);
             popularBookElement.appendChild(popularBuyElement);
             popularBookElement.appendChild(popularDescripElement);
 

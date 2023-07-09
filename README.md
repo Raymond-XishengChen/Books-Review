@@ -19,6 +19,7 @@ CSS Framework used:
 Link to Live page: 
 
 ![alt text](./Main/assets/screenshots/screenshoot1.png)
+![alt text](./Main/assets/screenshots/screenshot2.png)
 
 ## Credits
 Collaborators on this project were Niko Auer, Julie Kim, Luke Stanton, Raymond Chen and Hashmi Salim Ali.

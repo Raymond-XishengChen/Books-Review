@@ -16,7 +16,7 @@ CSS Framework used:
 
 ## Usage
 
-Link to Live page: 
+Link to live project: 
 
 ![alt text](./Main/assets/screenshots/screenshoot1.png)
 ![alt text](./Main/assets/screenshots/screenshot2.png)

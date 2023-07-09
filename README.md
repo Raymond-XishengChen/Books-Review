@@ -2,7 +2,7 @@
 
 ## Description
 
-We decided to build a project around a book suggestion dashboard. It would allow us to fetch the betseller list from the New York Times API and display those initially on the dashboard for the user to see and if anything interests them they can click on a link that would allow them to buy a copy from Amazon. Otherwise the search bar would interact with the Gutendex API and would search the 30 most popular options depending on the subject the user searches. While it is still rudimentary it allowed us to visualise and build a project that interacted with an API to produce an interactive dashboard that also utilized local stoarge functions to callback to previous requests. Furthermore more we learned how to use alternative CSS frameworks such as Bulma to stylize the project
+We decided to build a project around a book suggestion dashboard. It would allow us to fetch the bestseller list from the New York Times API and display those initially on the dashboard for the user to see and if anything interests them they can click on a link that would allow them to buy a copy from Amazon. Otherwise the search bar would interact with the Gutendex API and would search the 30 most popular options depending on the subject the user searches. While it is still rudimentary it allowed us to visualise and build a project that interacted with an API to produce an interactive dashboard that also utilized local stoarge functions to callback to previous requests. Furthermore more we learned how to use alternative CSS frameworks such as Bulma to stylize the project
 
 ## Technologies used
 

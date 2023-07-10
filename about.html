@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title class = >Book Review Search Engine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kablammo&family=Noto+Serif+JP:wght@300&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./Main/assets/css/style.css" />
+</head>
+
+<body>
+  <!-- Added a nav-->
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class = 'title is-1'>
+      BOOKS4U
+    </div>
+  
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+  
+    <div id="navbarBasicExample" class="navbar-menu">
+    
+  
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <a href="about.html" class="button">
+              <strong>About</strong>
+            </a>
+            <a href="more.html" class="button">
+              <strong>More</strong>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+<!-- About Section-->
+<article class = 'pl-6 pr-6'>
+    <h2 class = 'pt-6'>Project Description</h2>
+    <p>We decided to build a project around a book suggestion dashboard. It would allow us to fetch the betseller list from the New York Times API and display those initially on the dashboard for the user to see and if anything interests them they can click on a link that would allow them to buy a copy from Amazon. Otherwise the search bar would interact with the Gutendex API and would search the 30 most popular options depending on the subject the user searches. While it is still rudimentary it allowed us to visualise and build a project that interacted with an API to produce an interactive dashboard that also utilized local stoarge functions to callback to previous requests. Furthermore more we learned how to use alternative CSS frameworks such as Bulma to stylize the project. </p>
+    <h2 class = 'pt-3'>Technologies used:</h2>
+        The 2 API's used were:
+        <p>Gutendex API: https://gutendex.com/</p>
+        <p>New York API: https://developer.nytimes.com/apis</p>
+    <h2 class = 'pt-3'>CSS Framework used:</h2>
+       <p>Bulma https://bulma.io/</p> 
+       <p>Link to live project: https://raymond-xishengchen.github.io/Books-Review/</p> 
+    <h2 class = 'pt-3'>Credits</h2> 
+    <p> Collaborators on this project were Niko Auer, Julie Kim, Luke Stanton, Raymond Chen and Hashmi Salim Ali. Resources used:</p>
+        <ul><li>https://gutendex.com/</li>
+        <li>https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage</li>
+        <li>https://bulma.io/</li>
+        <li>https://developer.nytimes.com/apis</li>
+        <li>https://blog.hubspot.com/website/javascript-fetch-api</li>
+        <li>Image Placeholder: Vectors by Vecteezy</li></ul>
+</article>
+
+  <div id="bookList"></div>
+  <script src="./Main/assets/js/script.js"></script>
+  <script src="./Main/assets/js/topsellers.js"></script>

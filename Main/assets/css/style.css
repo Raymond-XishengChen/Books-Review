@@ -112,11 +112,11 @@ h6 {
 
 .popBooksPhoto:hover{
   opacity: 1;
-  transform: scale(110%);
+  transform: scale(105%);
 }
 
 .popBooksTitle {
   font-weight: bolder;
-  font-size: 150%;
+  font-size: 130%;
 }
 

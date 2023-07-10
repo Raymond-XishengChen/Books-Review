@@ -46,54 +46,67 @@
       popularSubjectElement.textContent = "New York Times Best Sellers List in " + '"' + data.results.list_name + '"';
         
       document.getElementById("popular-books").innerHTML = "";
-      data.results.books.forEach(popularBooks => {      
-        // Create elements for top seller book information
-        // Including titles, authors, book cover image and an Amazon buying link connect to the
-        // book covers      
-        var popularTitle = popularBooks.title;
-        var popularAuthor = popularBooks.author;
-        var popularDescrip = popularBooks.description;            
-        var popularPhotoUrl = popularBooks.book_image;
-        var popularBuyUrl = popularBooks.buy_links[0].url;
+
+      if (data.results.books && Array.isArray(data.results.books)) {
+        data.results.books.forEach(popularBooks => {      
+          // Create elements for top seller book information
+          // Including titles, authors, book cover image and an Amazon buying link connect to the
+          // book covers      
+          var popularTitle = popularBooks.title;
+          var popularAuthor = popularBooks.author;
+          var popularDescrip = popularBooks.description;            
+          var popularPhotoUrl = popularBooks.book_image;
+          var popularBuyUrl = popularBooks.buy_links[0].url;
+          
+          var popularBookElement = document.createElement("div");
+          popularBookElement.classList.add('popBooksSection');
+          popularBookElement.classList.add("book-card");
+
+          var popularTitleElement = document.createElement("h1");
+          popularTitleElement.classList.add('popBooksTitle');
+
+          var popularAuthorElement = document.createElement("h3");
+          popularAuthorElement.classList.add('popBooksAuthor');
+
+          var popularDescripElement = document.createElement("p");
+          popularDescripElement.classList.add('popBooksDescrip');
+
+          var popularPhotoElement = document.createElement("img");
+          popularPhotoElement.classList.add('popBooksPhoto');
+
+          var popularBuyElement = document.createElement("a");
+          popularBuyElement.classList.add('popBooksBuyLink');
+
+          popularBuyElement.href = popularBuyUrl;
+          popularTitleElement.innerText = popularTitle;
+          popularAuthorElement.innerText = "Author: " + popularAuthor;
+          popularDescripElement.innerText = popularDescrip;
+          popularPhotoElement.src = popularPhotoUrl;
+          popularPhotoElement.alt = "Cover Photo";
+          popularPhotoElement.style = "width:128px;height:168px";
+            
+          popularBuyElement.appendChild(popularPhotoElement);
+          popularBookElement.appendChild(popularTitleElement);
+          popularBookElement.appendChild(popularAuthorElement);
+          popularBookElement.appendChild(popularBuyElement);
+          popularBookElement.appendChild(popularDescripElement);
+
+
+          document.getElementById("popular-books").appendChild(popularBookElement);
+          document.getElementById("popular-books").classList.add('popBookSection');
         
-        var popularBookElement = document.createElement("div");
-        popularBookElement.classList.add('popBooksSection');
-        popularBookElement.classList.add("book-card");
-
-        var popularTitleElement = document.createElement("h1");
-        popularTitleElement.classList.add('popBooksTitle');
-
-        var popularAuthorElement = document.createElement("h3");
-        popularAuthorElement.classList.add('popBooksAuthor');
-
-        var popularDescripElement = document.createElement("p");
-        popularDescripElement.classList.add('popBooksDescrip');
-
-        var popularPhotoElement = document.createElement("img");
-        popularPhotoElement.classList.add('popBooksPhoto');
-
-        var popularBuyElement = document.createElement("a");
-        popularBuyElement.classList.add('popBooksBuyLink');
-
-        popularBuyElement.href = popularBuyUrl;
-        popularTitleElement.innerText = popularTitle;
-        popularAuthorElement.innerText = "Author: " + popularAuthor;
-        popularDescripElement.innerText = popularDescrip;
-        popularPhotoElement.src = popularPhotoUrl;
-        popularPhotoElement.alt = "Cover Photo";
-        popularPhotoElement.style = "width:128px;height:168px";
-           
-        popularBuyElement.appendChild(popularPhotoElement);
-        popularBookElement.appendChild(popularTitleElement);
-        popularBookElement.appendChild(popularAuthorElement);
-        popularBookElement.appendChild(popularBuyElement);
-        popularBookElement.appendChild(popularDescripElement);
-
-
-        document.getElementById("popular-books").appendChild(popularBookElement);
-        document.getElementById("popular-books").classList.add('popBookSection');
-      })
-  })
+        });
+      } else {
+        // Display a message if no books are found
+        var popularSubjectElement = document.getElementById("bestSellers");
+        popularSubjectElement.textContent = "Try Again Later For New York Times Best Sellers List";
+      }}
+  )
+  // Display a message if there's an error fetching from the api
+  .catch(error => {
+    var popularSubjectElement = document.getElementById("bestSellers");
+    popularSubjectElement.textContent = "Try Again Later For New York Times Best Sellers List";
+  });
 }  
 
 displayTopSellerBooks();
